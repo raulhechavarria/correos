@@ -1,0 +1,175 @@
+#{extends 'main.html' /}
+#{set title:'Plan Anual' /}
+
+#{script 'edits/editActividad.js' /}
+#{script 'adds/addActividad.js' /}
+#{script 'deletes/deleteActividad.js' /}
+#{script 'gestionarOE.js' /}
+#{script 'gestionarOT.js' /}
+#{script 'gestionarSecciones.js' /}
+#{script 'details/detailsActividad.js' /}
+
+<script type="text/javascript" charset="utf-8">
+
+$(document).ready(function (){
+    $(".active").removeClass("active");
+    $(".controlEnvironmentMenuV").addClass("active");
+    $(".planeacionMenu").addClass("active");
+    $(".planesAnualesMenu").addClass("active");
+    
+});
+
+
+Ext.require([
+             'Ext.data.*',
+             'Ext.grid.*',
+             'Ext.tree.*',
+             'Ext.tip.QuickTipManager',
+]);
+
+Ext.onReady(function() {
+	Ext.tip.QuickTipManager.init();
+	
+	Ext.define('Actividad', {
+        extend: 'Ext.data.Model',
+        fields: [
+            {name: 'text',type: 'string'},{name: 'id',type: 'int'},{name: 'idFuncional',type: 'string'}, 
+            {name: 'descripcion', type: 'string'},{name: 'fechaInicio', type: 'string'},{name: 'fechaFinal', type: 'string'},
+            {name: 'responsable', type: 'string'}, {name: 'participantes', type: 'string'}, {name: 'recursos', type: 'string'}, 
+            {name: 'idOT', type: 'int'},{name: 'idFuncionalOT', type: 'string'},{name: 'OTDescripcion', type: 'string'},
+            {name: 'observacionId', type: 'int'},{name: 'observacionDescripcion', type: 'string'},
+            {name: 'seccionId', type: 'int'},{name: 'seccionDescripcion', type: 'string'},
+        ]
+    });
+	
+	var store = Ext.create('Ext.data.TreeStore', {
+		model:'Actividad',
+		id:'storeActividad', 
+		proxy: {
+            type: 'ajax',
+            url: 'planAnualJson'
+        }
+	});
+	
+	var contextMenu = Ext.create('Ext.menu.Menu', {
+        items: [{
+				text: 'Ver',
+				iconCls: 'detail',
+				handler: onDetailActivities
+			},
+            {
+	        	text: 'Editar',
+	        	iconCls: 'edit',
+	        	handler: onEditActivities
+	    	},
+	    	{
+		        text: 'Eliminar',
+		        iconCls: 'remove',
+		        handler: onDeleteActivities
+			}
+        ]
+    });
+	
+	var treePanel = Ext.create('Ext.tree.Panel', {
+	    title: 'Plan Anual de Actividades',
+	    width: 700,
+	    id:'treePanel',
+	    height: 650,
+	    store: store,
+	    rootVisible: false,        
+	    renderTo: 'tareasGrid',
+		viewConfig: {
+	    	listeners: {
+	        	itemcontextmenu: function(view, rec, node, index, e) {
+	        		var selection = treePanel.getSelectionModel().getSelection()[0];
+	        		if (selection.data.id!=0) {
+	        			e.stopEvent();
+		                contextMenu.showAt(e.getXY());
+		                return false;
+	        		}
+	             }
+	         }
+	    },
+	    tbar:[{
+	 		xtype:          'combo',
+	 		id:				'anhoCombo',
+    		editable:       false,
+    		fieldLabel:     'Anho',
+    		name:           'anho',
+    		displayField:   'anho',
+    		valueField:     'id',
+    		listeners:{
+                select: function(combo, record, index){
+                  store.load({
+              	    params:{
+              	        anho:combo.getValue()   
+              	    }
+              	});
+               }
+            },
+    		store: Ext.create('Ext.data.Store', {
+    			fields:['id','anho'],
+    			proxy: {
+        			type: 'ajax',
+        			url: 'anhosJson'
+    			}
+    		})
+ 		}, '-',
+	   	
+	   	{
+ 			//text: 'A&ntilde;adir',
+ 			iconCls: 'add',
+	        tooltip:'A&ntilde;adir Actividad',
+	        handler: onAddActivities
+	    }, '-',
+	    {
+	        //text: 'Editar',
+	        iconCls: 'edit',
+	        tooltip:'Editar Actividad',
+	        handler: onEditActivities
+					
+	     }, '-',
+	         
+	     {
+	     	//text: 'Eliminar',
+	        iconCls: 'remove',
+	        tooltip:'Eliminar Actividad',
+	        handler: onDeleteActivities
+	     }, '-',
+	     {
+             text: 'Analisis Grafico',
+             iconCls: 'chart'
+         },'-',
+	     {
+	    	xtype:'splitbutton',
+	    	text: 'Reportes',
+		    iconCls: 'pdficon',
+		    menu: [{text: 'Generar Plan Anual Actividades'},
+                   {text: 'Generar Objetivos Trabajo'}]
+		 }, '-',
+		 
+		 {
+             xtype:'splitbutton',
+             text: 'Otras Actualizaciones',
+             iconCls: '',
+             menu: [{text: 'Gestionar Objetivos Estrategicos', handler:onManageOE},
+                    {text: 'Gestionar Objetivos Trabajo', handler:onManageOT},
+                    {text: 'Gestionar Secciones', handler:onManageSecciones}]
+         },'-',
+	  	]
+	});
+});
+</script>
+
+<h2 class="art-postheader">Planes anuales</h2
+<br/>
+
+<a href="@{AmbienteControl.generatePlanAnualPDF()}">pdf</a>
+
+<div class="art-postcontent art-postcontent-0 clearfix">
+	<div class="art-content-layout" style="margin-left: 0.8em;">
+		<div class="art-content-layout-row" id="tareasGrid">
+			
+    	</div>
+    </div>
+</div>

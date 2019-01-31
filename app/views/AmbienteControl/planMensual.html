@@ -1,0 +1,35 @@
+#{extends 'main.html' /}
+#{set title:'Plan Mensual' /}
+
+<script type="text/javascript" charset="utf-8">
+
+	$(document).ready(function (){
+    	$(".active").removeClass("active");
+    	$(".controlEnvironmentMenuV").addClass("active");
+	    $(".planeacionMenu").addClass("active");
+    	$(".planesMensualesMenu").addClass("active");
+	});
+
+	Ext.require([
+    	'Ext.data.*',
+        'Ext.grid.*',
+        'Ext.tree.*',
+        'Ext.tip.QuickTipManager',
+	]);
+
+	Ext.onReady(function() {
+		
+	});
+	
+</script>
+
+<h2 class="art-postheader">Planes Mensuales</h2
+<br/>
+
+<div class="art-postcontent art-postcontent-0 clearfix">
+	<div class="art-content-layout" style="margin-left: 0.8em;">
+		<div class="art-content-layout-row" id="planesMensualesGrid">
+			
+    	</div>
+    </div>
+</div>

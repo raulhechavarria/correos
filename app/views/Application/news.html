@@ -1,0 +1,82 @@
+#{extends 'main.html' /}
+#{set title:'Noticias' /}
+
+<style>
+	.art-content .art-postcontent-1 .layout-item-0 { padding-right: 10px;padding-left: 10px;  }
+	.ie7 .post .layout-cell {border:none !important; padding:0 !important; }
+	.ie6 .post .layout-cell {border:none !important; padding:0 !important; }.art-content .art-postcontent-2 .layout-item-0 { padding-right: 10px;padding-left: 10px;  }
+	.ie7 .post .layout-cell {border:none !important; padding:0 !important; }
+	.ie6 .post .layout-cell {border:none !important; padding:0 !important; }
+	
+</style>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function (){
+        $(".active").removeClass("active");
+        $("#newsMenu").addClass("active");
+        $("#newsMenuV").addClass("active");
+    });    
+</script>
+
+<article class="art-post art-article">
+	<h2 class="art-postheader"><a href="@{Application.showNew()}">Latest Update</a></h2>
+    <div class="art-postheadericons art-metadata-icons">
+    	<span class="art-postdateicon"></span> | <span class="art-postpdficon"></span>
+        | <span class="art-postprinticon"></span> | <span class="art-postemailicon"></span>
+     </div>
+     <div class="art-postcontent art-postcontent-0 clearfix">
+		<div class="art-content-layout">
+			<div class="art-content-layout-row">
+				<div class="art-layout-cell layout-item-0" style="width: 100%">
+					<p><span style="font-weight: bold;">Condimentum aenean felis ante tincidunt non turpis urna suspendisse sit 
+					iaculis luctus egestas urna a nulla augue tincidunt risus risus nunc.</span></p>
+					<p>Suspendisse commodo non tristique gravida ante libero. Faucibus vitae nisl egestas pulvinar nunc ac magna 
+					ut massa tortor in augue bibendum etiam suscipit dolor orci. Quisque lacinia et elementum jnteger neque 
+					curabitur enim viverra. Arcu magnis et nonummy ut.</p>
+				</div>
+			</div>
+		</div><br>
+		<a href="@{Application.showNew()}">Read more...</a>
+     </div>
+</article>
+
+<article class="art-post art-article">
+	<h2 class="art-postheader"><a href="@{Application.showNew()}">New Product Available</a></h2>
+   	<div class="art-postheadericons art-metadata-icons">
+    	<span class="art-postdateicon"></span>| <span class="art-postpdficon"></span>
+        | <span class="art-postprinticon"></span>| <span class="art-postemailicon"></span>
+    </div>
+    <div class="art-postcontent art-postcontent-1 clearfix">
+		<div class="art-content-layout">
+			<div class="art-content-layout-row">
+				<div class="art-layout-cell layout-item-0" style="width: 100%">
+					<p>Ad vitae ipsum aptent nostra nulla nisi erat. Velit augue pellentesque praesent laoreet hendrerit dictum 
+					tortor tellus. Pulvinar praesent a hendrerit posuere turpis ut non ut. Turpis primis lacus nisl odio vitae. 
+					Donec massa semper sit. In nec in massa aliquam morbi turpis justo suscipit ultricies laoreet id. Vitae donec 
+					tortor vestibulum mi aliquam sed id suspendisse. Erat feugiat pede odio purus sed. Hac commodo luctus eget 
+					quisque.</p>
+				</div>
+			</div>
+		</div><br><a href="@{Application.showNew()}">Read more...</a>
+    </div>
+</article>
+
+<article class="art-post art-article">
+	<h2 class="art-postheader"><a href="@{Application.showNew()}">Increase In Sales</a></h2>
+    <div class="art-postheadericons art-metadata-icons">
+    	<span class="art-postdateicon"></span> | <span class="art-postpdficon"></span>
+        | <span class="art-postprinticon"></span> | <span class="art-postemailicon"></span>
+     </div>
+     <div class="art-postcontent art-postcontent-2 clearfix">
+		<div class="art-content-layout">
+			<div class="art-content-layout-row">
+				<div class="art-layout-cell layout-item-0" style="width: 100%">
+					<p>Adipiscing egestas quis donec auctor eleifend a congue. Cras urna nonummy quam egestas at ultrices non mi eu.
+					 Donec augue fusce hac phasellus ac aenean. Etiam nec vivamus nec ut magna imperdiet ipsum nisi sagittis. 
+					 Amet nibh dolor praesent elit sit. Luctus ornare quam tellus nunc netus augue. Nisl velit senectus justo non 
+					 augue odio posuere. Laoreet nec consectetuer porta fusce luctus ut magna a quis.</p>
+				</div>
+			</div>
+		</div><br><a href="@{Application.showNew()}">Read more...</a>
+      </div>
+</article>

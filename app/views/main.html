@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    	<link rel="stylesheet" href="@{'/public/stylesheets/style.css'}" media="screen">
+    	<!--[if lte IE 7]><link rel="stylesheet" href="@{'/public/stylesheets/style.ie7.css'}" media="screen" /><![endif]-->
+    	<link rel="stylesheet" href="@{'/public/stylesheets/style.responsive.css'}" media="all">
+    	<link rel="stylesheet" type="text/css" href="@{'/public/javascripts/ext-4.0.0/resources/css/ext-all.css'}">
+        #{get 'moreStyles' /}
+        <style>
+			.art-content .art-postcontent-0 .layout-item-0 { padding-right: 10px;padding-left: 10px;  }
+			.ie7 .post .layout-cell {border:none !important; padding:0 !important; }
+			.ie6 .post .layout-cell {border:none !important; padding:0 !important; }
+		</style>
+        
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery.js'}"></script>
+    	<script src="@{'/public/javascripts/script.js'}"></script>
+    	 <script src="@{'/public/javascripts/ext-4.0.0/ext-all.js'}" type="text/javascript" charset="utf-8"></script>
+    	<script src="@{'/public/javascripts/script.responsive.js'}"></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+        <div id="art-main">
+    		<div class="art-sheet clearfix">
+				<header class="art-header clearfix">
+    				<div class="art-shapes">
+						<h1 class="art-headline" data-left="33.1%">
+    						<a href="#">EMPRESA CORREOS CAMAG&Uuml;EY</a>
+						</h1>
+						<h2 class="art-slogan" data-left="17.97%">Global Telecommunication Services</h2>
+            		</div>
+				</header>
+				<nav class="art-nav clearfix">
+    				<ul class="art-hmenu">
+    					<li><a id="indexMenu" href="@{Application.index()}" class="active">Principal</a></li>
+    					<li><a id="newsMenu" href="@{Application.news()}">Noticias</a></li>
+    					<li><a id="productsMenu" href="@{Application.products()}">Nuestros Productos</a></li>
+    					<li><a id="servicesMenu" href="@{Application.services()}">Nuestros Servicios</a></li>
+    					<li><a id="clientsMenu" href="@{Application.clients()}">Nuestros Clientes</a></li>
+    					<li><a id="forumMenu" href="@{Application.forumIndex()}">Forum</a></li>
+    					<li><a id="contactMenu" href="@{Application.contactUs()}">Cont&aacute;ctenos</a></li>
+    				</ul> 
+    			</nav>
+				
+				<div class="art-layout-wrapper clearfix">
+                	
+                	<div class="art-content-layout">
+                    	<div class="art-content-layout-row">
+                        	<div class="art-layout-cell art-sidebar1 clearfix"><div class="art-vmenublock clearfix">
+        						<div class="art-vmenublockcontent">
+									<ul class="art-vmenu">
+									<li><a id="indexMenuV" href="@{Application.index()}" class="active">Principal</a></li>
+									<li><a id="newsMenuV" href="@{Application.news()}">Noticias</a></li>
+									<li><a id="productsMenuV" href="@{Application.products()}">Nuestros Productos</a></li>
+									<li><a id="servicesMenuV" href="@{Application.services()}">Nuestros Servicios</a></li>
+									<li><a id="clientsMenuV" href="@{Application.clients()}">Nuestros Clientes</a></li>
+									<li><a id="forumMenuV" href="@{Application.forumIndex()}">Forum</a></li>
+									<li><a id="contactMenuV" href="@{Application.contactUs()}">Cont&aacute;ctenos</a></li>
+									<li><a class="controlEnvironmentMenuV" href="@{AmbienteControl.index()}">Ambiente de Control</a>
+										<ul class="controlEnvironmentMenuV">
+											<li><a class="planeacionMenu"  href="#">Planeaci&oacute;n</a>
+												<ul class="planeacionMenu">
+													<li><a class="planesAnualesMenu" href="@{AmbienteControl.planAnual()}">Planes Anuales</a></li>
+													<li><a class="planesMensualesMenu" href="@{AmbienteControl.planMensual()}">Planes Mensuales</a>
+														<ul>
+															<li><a href="#">Subdirecci&oacute;n RRHH</a></li>
+															<li><a href="#">Subdirecci&oacute;n Operaciones</a></li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+											<li><a class="integridadValoresEMenu" href="#">Integridad y Valores &Eacute;ticos</a>
+												<ul  class="integridadValoresEMenu">
+													<li><a href="#">C&oacute;digo de &Eacute;tica de los Cuadros</a></li>
+													<li><a href="#">Reglamento &Oacute;rganico</a></li>
+													<li><a href="#">Manual de Procedimiento</a></li>
+													<li><a href="#">Convenio Colectivo de Trabajo</a></li>
+													<li><a href="#">Reglamento Disciplinario Interno</a></li>
+												</ul>
+											</li>
+											<li><a  class="idoneidadDemostradaMenu" href="#">Idoneidad Demostrada</a>
+												<ul class="idoneidadDemostradaMenu">
+													<li><a href="#">Plan de Adiestramiento para los nuevos ingresos</a></li>
+													<li><a href="#">Comisi&oacute;n de Idoneidad</a></li>
+												</ul>
+											</li>
+											<li><a  class="estructuraMenu" href="#">Estructura organizativa</a>
+												<ul class="estructuraMenu">
+													<li><a href="#">Organigrama</a></li>
+													<li><a href="#">Atribuciones y funciones de los Cargos</a></li>
+												</ul>
+											</li>
+											<li><a  class="gestionRRHHMenu" href="#">Pol&iacute;ticas y pr&aacute;cticas en la gesti&oacute;n de RRHH</a>
+												<ul class="gestionRRHHMenu">
+													<li><a href="#">Plan de Capacitaci&oacute;n</a></li>
+													<li><a href="#">Reglamento para la Evaluaci&oacute;n del Desempeño</a></li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li><a class="riskManagmentMenuV" href="@{GestionRiesgos.index()}">Gesti&oacute;n y Prevenci&oacute;n Riesgos</a>
+										<ul class="riskManagmentMenuV">
+											<li><a href="#">Planes de Riesgo</a></li>
+											<li><a href="#">Objetivos de control</a></li>
+											<li><a href="#">Planes de Prevenci&oacute;n de Riesgo</a></li>
+										</ul>
+									</li>
+									<li><a class="controlActivitiesMenuV" href="@{ActividadesControl.index()}">Actividades de Control</a>
+										<ul class="controlActivitiesMenuV" >
+											<li><a href="#">Coordinaci&oacute;n entre las &aacute;reas</a></li>
+												<li><a href="#" class="documentacionMenu">Documentaci&oacute;n y registro oportuno de los hechos</a>
+													<ul class="documentacionMenu">
+														<li><a href="#">Actas de &oacute;rganos colectivos de direcci&oacute;n</a></li>
+														<li><a href="#">Actas de Asambleas con los Trabajadores</a></li>
+													</ul>
+												</li>
+											<li><a href="#">Acceso restringido a los recursos</a></li>
+											<li><a href="#">Rotaci&oacute;n del personal</a></li>
+											<li><a class="ctrolTecnologiasMenu" href="#">Control de las Tecnolog&iacute;as de la Informaci&oacute;n</a>
+												<ul class="ctrolTecnologiasMenu"><li><a href="#">Plan de Seguridad Inform&aacute;tica</a></li></ul>
+											</li>
+											<li><a href="#">Indicadores de rendimiento y desempe&ntilde;o</a></li>
+										</ul>
+									</li>
+									<li><a class="informationComunicationMenuV" href="@{InformacionComunicaciones.index()}">Informaci&oacute;n y Comunicaciones</a>
+										<ul class="informationComunicationMenuV"><li><a href="#">Sistemas de Informaci&oacute;n, flujos y canales de comunicaci&oacute;n</a></li>
+											<li><a href="#">Contenido, calidad y responsabilidad</a></li>
+											<li><a href="#">Rendici&oacute;n de cuentas</a></li>
+										</ul>
+									</li>
+									<li><a class="supervisionMenuV" href="@{SupervisionMonitoreo.index()}">Supervisi&oacute;n o Monitoreo</a>
+										<ul class="supervisionMenuV">
+											<li><a class="evaluacionCI" href="#">Evaluaci&oacute;n de la eficacia del Control Interno</a>
+												<ul class="evaluacionCI"><li><a href="#">Plan de Auditor&iacute;a Interna</a></li></ul>
+											</li>
+											<li><a class="supervisionMenuV" href="#">Comit&eacute; de Prevenci&oacute;n y Control</a>
+												<ul class="supervisionMenuV"><li><a href="#">Resoluci&oacute;n de Constituci&oacute;n</a></li>
+													<li><a href="#">Actas de reuniones</a></li>
+													<li><a href="#">Plan tem&aacute;tico de reuniones</a></li>
+													<li><a href="#">Disposiciones legales del Control Interno</a></li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+                   			</div>
+						</div>
+					</div>
+					
+                    <div class="art-layout-cell art-content clearfix">
+                    	<article class="art-post art-article">
+                    		#{doLayout /}
+						</article>
+					</div>
+          		</div>
+        	</div>
+     	</div>
+		<footer class="art-footer clearfix">
+  			<div class="art-footer-inner">
+				<p>Copyright 2013.</p>
+    			<p class="art-page-footer">
+        			<span id="art-footnote-links"><a href="http://www.artisteer.com/" target="_blank">Web Template</a> created with Artisteer.</span>
+    			</p>
+  			</div>
+		</footer>
+	</body>
+</html>

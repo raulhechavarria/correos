@@ -1,0 +1,17 @@
+[	#{list items:objetivosT, as:'o'}
+		{
+			"id":${o.id},
+			"idFuncional":"${o.idFuncional}",
+			"descripcion": "${o.descripcion}",
+			"responsable": "${o.responsable}",
+			"idOE":${o.objetivoEstrategico.id},
+			"idFuncionalOE":"${o.objetivoEstrategico.idFuncional}",
+			"fechaInicio":"${o.fechaInicio}",
+			"fechaFinal":"${o.fechaFinal}",
+			}#{ifnot o_isLast},#{/ifnot}
+		#{/list}
+]
+
+			
+		
+		

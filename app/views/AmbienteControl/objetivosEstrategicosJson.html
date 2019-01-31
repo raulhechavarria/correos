@@ -1,0 +1,15 @@
+[	#{list items:objetivosE, as:'o'}
+		{
+			"id":${o.id},
+			"idFuncional":"${o.idFuncional}",
+			"descripcion": "${o.descripcion}",
+			"idARC":${o.area.id},
+			"anho":${o.anho.anho},
+			"areaDescripcion":"${o.area.descripcion}",
+			}#{ifnot o_isLast},#{/ifnot}
+		#{/list}
+]
+
+			
+		
+		

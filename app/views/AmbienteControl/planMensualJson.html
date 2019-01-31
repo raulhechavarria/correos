@@ -1,0 +1,18 @@
+[	#{list items:actividades, as:'a'}
+		{
+			"id":${a.id},
+			"numero":${a.numero},
+			"descripcion": "${a.descripcion}",
+			"fecha":"${a.fecha}",
+			"hora":"${a.hora}",
+			"lugar":"${a.lugar}",
+			"participantes":"${a.participantes}",
+			"dptoId":${a.planMensual.dpto.id},
+			"dptoDescripcion":"${a.planMensual.dpto.dpto}"
+			}#{ifnot a_isLast},#{/ifnot}
+		#{/list}
+]
+
+			
+		
+		

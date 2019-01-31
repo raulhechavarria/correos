@@ -1,0 +1,107 @@
+[	#{list items:response.area, as:'a'}
+		{
+			"text":"${a.idFuncional} ${a.descripcion}",
+			"node":${a.id},
+			"expanded": false,
+			"children":
+				[
+					#{list items:response.objetivosE, as:'oE'}
+						#{if oE.area.id==a.id}
+							{
+								"text":"${oE.idFuncional} ${oE.descripcion}",
+								"node":${oE.id},
+	      						"expanded": false,
+								"children":
+	      							[
+										#{list items: response.objetivosT, as:'oT'}
+	      									#{if oT.objetivoEstrategico.id==oE.id}
+	      										{
+          											"text":"${oT.idFuncional} ${oT.descripcion}",
+          											"node":${oT.id},
+	          										"expanded": false,
+	      											"children":
+	          											[
+															#{list items:response.tareas, as:'t'}
+																	#{if t.objetivoTrabajo !=null}
+																		#{if oT.id==t.objetivoTrabajo.id}
+																			{	"text":"${t.idFuncional} ${t.descripcion}",
+																				"id":${t.id},
+																				"idFuncional":"${t.idFuncional}",
+																				"descripcion":"${t.descripcion}",
+																				"fechaInicio":"${t.fechaInicio}",
+																				"fechaFinal":"${t.fechaFinal}",
+																				"responsable":"${t.responsable}",
+																				"participantes":"${t.participantes}",
+																				"recursos":"${t.recursos}",
+																				"idOT":"${t.objetivoTrabajo.id}",
+																				"idFuncionalOT": "${t.objetivoTrabajo.idFuncional}",
+																				"OTDescripcion": "${t.objetivoTrabajo.descripcion}",
+																				#{if t.observacion !=null}
+																					"observacionId":${t.observacion.id},
+																					"observacionDescripcion":"${t.observacion.observacion}",
+																				#{/if}
+																				#{else}
+																					"observacionId":-1,
+																					"observacionDescripcion": "-",
+																				#{/else}
+																				"seccionId": -1,
+																				"leaf": true
+																			}#{ifnot t_isLast},#{/ifnot}
+																		#{/if}
+																	#{/if}
+																#{/list}
+	          											]
+	      										}#{ifnot oT_isLast},#{/ifnot}
+	      									#{/if}
+										#{/list}
+	      							]
+							}#{ifnot oE_isLast},#{/ifnot}
+						#{/if}
+					#{/list}
+				]
+			},
+		#{/list}
+		#{list items:response.secciones, as:'s'}
+			{
+				"text":"${s.descripcion}",
+				"node":${s.id},
+				"expanded": false,
+				"children":
+					[
+						#{list items:response.tareas, as:'t'}
+							#{if t.seccion !=null}
+								#{if s.id==t.seccion.id}
+									{	"text":"${t.idFuncional} ${t.descripcion}",
+										"id":${t.id},
+										"idFuncional":"${t.idFuncional}",
+										"descripcion":"${t.descripcion}",
+										"fechaInicio":"${t.fechaInicio}",
+										"fechaFinal":"${t.fechaFinal}",
+										"responsable":"${t.responsable}",
+										"participantes":"${t.participantes}",
+										"recursos":"${t.recursos}",
+										"idOT":-1,
+										"idFuncionalOT":"-1",
+										#{if t.observacion !=null}
+											"observacionId":${t.observacion.id},
+											"observacionDescripcion":"${t.observacion.observacion}",
+										#{/if}
+										#{else}
+											"observacionId":-1,
+											"observacionDescripcion":"-",
+										#{/else}
+										"seccionId": ${t.seccion.id},
+										"seccionDescripcion": "${t.seccion.descripcion}",
+										"leaf": true
+									}#{ifnot t_isLast},#{/ifnot}
+								#{/if}
+							#{/if}
+						#{/list}
+					]
+			}#{ifnot s_isLast},#{/ifnot}
+		#{/list}
+]
+
+			
+		
+		
